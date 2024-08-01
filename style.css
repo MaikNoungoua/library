@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+#main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#header{
+
+    background-color: #8739f9;
+    color: white;
+    height: 11%;
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+
+
+}
+
+
+#title{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end:2;
+
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+#stats{
+    grid-column-start: 18;
+    grid-column-end: 20;
+    height: 100px;
+    margin: auto;
+    width: 50%;
+    border-radius: 25px;
+    font-size: x-large;
+    font-weight: 900;
+    background-color: #8739f9;
+    border: none;
+    color: aliceblue;
+    
+}
+
+#stats:hover{
+    background-color: #09080a41;
+}
+
+#add-book{
+    height: 100px;  
+    width: 100px;
+    border-radius: 50%;
+    border: none;
+    font-size: xx-large;
+    font-weight: 900;
+    background-color: #8739f9;
+    color: aliceblue;
+
+}
+
+#add-book:hover{
+    background-color: #09080a41;
+}
+
+#book-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 75%;
+    margin: auto;
+    border: black 1px;
+}
+
+.book-slots{
+    width: 250px;
+    height: 370px;
+    border: black 1px;
+    gap: 8px;
+    background-color: aqua;
+}
+
+#book-form{
+    background-color: #9153ee62;
+    width: 50%;
+    height: 55%;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.division-book-form{
+    display: flex;
+    flex-direction: row;
+    height: 16%;
+    width: 85%;
+    margin: auto;
+    gap: 30px;
+    
+}
+
+input{
+    background-color:#9153ee00 ;
+    width: 100%;
+    height: 45px;
+    border-top: 3px black;
+    border-left: 3px black;
+    border-right: 3px black;
+}
+
+input:cl
+
+.form-text{
+    font-weight: 800;
+    color: rgb(49, 62, 73);
+
+}
+
+.book-form-divs{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr
+}
