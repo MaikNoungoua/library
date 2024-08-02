@@ -13,6 +13,7 @@ body{
     display: flex;
     align-items: center;
     justify-items: center;
+    gap: 10px;
 }
 
 #header{
@@ -127,8 +128,14 @@ input:cl
 
 }
 
-.book-form-divs{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 1fr
+#book-form{
+display: grid;
+grid-template-columns: 0.3fr 1fr 0.2fr;
+grid-template-rows: repeat(7,1fr) ;
+
+
 }
+.book-form-divs{
+    border: black 2px;
+}
+
