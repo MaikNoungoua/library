@@ -1,12 +1,61 @@
 //fucntion to display the form to add a book
 
+displayBook = function() {
+    gridGeneration(ON);
 
-
-submitBook = function(){
-    alert("A new book was added!")
 }
 
+ function Book(title, author, pages, genre, coverPage, read){
+    this.title = title; 
+    this.author = author;
+    this.pages = pages;
+    this.genre = genre;
+    this.coverPage = coverPage;
+    this.read = read;
+
+}
+
+submitBook = function(){
+    /*This function describes what is goiing to happen when the submit button is pressed. 
+             - all input from user to be stored in variables 
+             - using object contructor to create a new book. 
+    */
+   
+        
+    let titleInput = document.getElementById("input1").value;
+    let authorInput = document.getElementById("input2").value;
+    let pageInput = document.getElementById("input3").value;
+    let genreInput = document.getElementById("input4").value;
+    let coverPageInput = document.getElementById("input5").value;
+    let readInput = document.getElementById("input6").value;
+
+    var newBook = new Book(titleInput, authorInput,pageInput,genreInput,coverPageInput,readInput);
+    console.log(newBook);
+    bookForm.style.display = "none";
+    displayBook();
+
+    }
+    /*let titleInput = document.getElementById("input1").value;
+    let authorInput = document.getElementById("input2").value;
+    let pageInput = document.getElementById("input3").value;
+    let genreInput = document.getElementById("input4").value;
+    let coverPageInput = document.getElementById("input5").value;
+    let readInput = document.getElementById("input6").value;
+
+    var newBook = new Book(titleInput, authorInput,pageInput,genreInput,coverPageInput,readInput);
+    console.log(newBook); */
+
+    /*console.log(titleInput);
+    console.log(authorInput);
+    console.log(pageInput);
+    console.log(genreInput);
+    console.log(coverPageInput);
+    console.log(readInput); */
+
+
 addingBook = function() {
+
+
     const mainContainer = document.getElementById("main-container"); //grid container element and book form container
     const bookForm = document.createElement("div");
     bookForm.setAttribute("id","book-form");
@@ -19,9 +68,6 @@ addingBook = function() {
             const bookFormDiv = document.createElement("div");
             bookFormDiv.className = "book-form-divs";
             bookForm.appendChild(bookFormDiv);
-            /*const gridItem = document.createElement("div");
-            gridItem.className = "book-form-elements";
-            bookFormDiv.appendChild(gridItem);*/
         };
 
     }
@@ -33,6 +79,7 @@ addingBook = function() {
         const inputField = document.createElement("INPUT");
         inputField.setAttribute("type","text","class","to-input");
         inputField.style.gridArea = `${increment1}/2/${increment2}/3`;
+        inputField.setAttribute("id",`input${increment1}`)
         bookForm.appendChild(inputField);
         increment1++;
         increment2++;
@@ -42,7 +89,7 @@ addingBook = function() {
    //for title: 
     const textTitle = document.createElement("p");
     textTitle.innerText = "Title: ";
-    textTitle.setAttribute("class","text-form");
+    textTitle.setAttribute("class","text-form","id","title");
     textTitle.style.gridArea ='1/1/2/2';
     bookForm.appendChild(textTitle);
     
@@ -92,60 +139,11 @@ addingBook = function() {
      bookForm.appendChild(submitButton);
      submitButton.style.gridArea ='7/2/11/3';
      submitButton.addEventListener('click', submitBook);
-
-
-
-     
-
-    /*
-    const pagesDiv = document.createElement("div");
-    pagesDiv.setAttribute("class","division-book-form");
-    bookForm.appendChild(pagesDiv);
-    const pages = document.createElement("INPUT");
-    pages.setAttribute("type","text","class","to-input");
-    pagesDiv.appendChild(pagesTitle);
-    pagesDiv.appendChild(pages);
-
-
-    
-    const genreDiv = document.createElement("div");
-    genreDiv.setAttribute("class","division-book-form");
-    bookForm.appendChild(genreDiv);
-    const genre = document.createElement("INPUT");
-    genre.setAttribute("type","text","class","to-input");
-    genreDiv.appendChild(genreTitle);
-    genreDiv.appendChild(genre);
-
-    
-    const coverPageDiv = document.createElement("div");
-    coverPageDiv.setAttribute("class","division-book-form");
-    bookForm.appendChild(coverPageDiv);
-    const coverPage = document.createElement("INPUT");
-    coverPage.setAttribute("type","text","class","to-input");
-    coverPageDiv.appendChild(coverPageTitle);
-    coverPageDiv.appendChild(coverPage);
-
-     //for read
-     const readTitle = document.createElement("p");
-     readTitle.innerText = "Have you read it? ";
-     readTitle.setAttribute("class","form-text");
-     const readDiv = document.createElement("div");
-     readDiv.setAttribute("class","division-book-form");
-     bookForm.appendChild(readDiv);
-     const read = document.createElement("INPUT");
-     read.setAttribute("type","text","class","to-input");
-     readDiv.appendChild(readTitle);
-     readDiv.appendChild(read);
-     */
 }
 
 
 
-
-
-//const gridContainer = document.getElementById("main-container");
-
-gridGeneration = function (){
+gridGeneration = function (value){
 
     //defining the grid size 
     const rows = 4; 
@@ -178,7 +176,13 @@ gridGeneration = function (){
     //Right after that it need to make the formulaire for book appear. 
         
     }
-    bookContainer.style.display = " none";
+    if (value == "ON"){
+        bookContainer.style.display = "none";
+    }
+    else {
+        pass; 
+    };
+    
     addingBook();
     
    /*mainContainer.style.display = "none";
@@ -191,4 +195,5 @@ gridGeneration = function (){
 };
 
 //event listener for add book button. 
-document.getElementById("add-book").addEventListener("click", gridGeneration);
+//document.getElementById("add-book").addEventListener("click", gridGeneration); // here we change the first function that is being generated. 
+document.getElementById("add-book").addEventListener("click", addingBook);

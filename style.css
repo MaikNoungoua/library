@@ -94,11 +94,12 @@ body{
 }
 
 #book-form{
-    background-color: #9153ee62;
+    background-color: #8739f9;
     width: 50%;
     height: 55%;
     margin: auto;
     border-radius: 25px;
+    padding: 10px;
 }
 
 .division-book-form{
@@ -115,12 +116,18 @@ input{
     background-color:#9153ee00 ;
     width: 100%;
     height: 45px;
-    border-top: 3px black;
-    border-left: 3px black;
-    border-right: 3px black;
+    border-top: 3px rgb(248, 248, 248);
+    border-left: 3px rgb(244, 243, 243);
+    border-right: 3px rgb(255, 245, 245);
 }
 
-input:cl
+input:focus{
+    border-radius: 15px ;
+    outline: 2px #8739f9;  /*this stops the input element from changing color when it is selected. */
+   
+    
+
+}
 
 .form-text{
     font-weight: 800;
@@ -139,3 +146,17 @@ grid-template-rows: repeat(7,1fr) ;
     border: black 2px;
 }
 
+#submit{
+    border-radius: 50px;
+    width: 90%;
+    font-size: xx-large;
+    font-weight: 900;
+    color: aliceblue;
+    background-color:  #8739f9;
+}
+
+.text-form{
+    font-size: x-large;
+    font-weight: 900;
+    color: aliceblue;
+}
