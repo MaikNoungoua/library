@@ -1,0 +1,17 @@
+We could also desing a UI where 7 by 7 grid is created and each grid item has a little plus icon in the middle; 
+press the little plus icon create book adding form (title author pages, read, genre, cover pages)
+
+
+
+grid area for input: 
+
+square.style.gridArea = 'rowStart / columnStart';
+
+square.style.gridArea ='1/2/2/3';
+
+1/2/2/3
+2/2/3/3
+3/2/4/3
+4/2/5/3
+5/2/6/3
+6/2/7/3

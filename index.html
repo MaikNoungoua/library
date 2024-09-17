@@ -9,12 +9,50 @@
 
 <body>
 
-    <div id="header">
-        <div id="title">The Library Project</div>
-        <button id="stats"> Stats </button>
-        <button id="add-book"> + </button>
+    <div id="main_container">
+        <div id="banner" class="section">
+            <img src="./images/library-shelves.svg" width="70px" height="45px" alt="the library">
+            <p id="logo-text">The Library</p>
+        </div>
+        <div id="adding">
+            <button> + Add Book </button>
+        </div>
+
+        <form id="popup">
+            <label for="title">Title</label><br>
+            <input type="text" id="title" placeholder="What is the title?" class="section"> <br><br>
+            
+
+            <label for="author">Author</label> <br>
+            <input type="text" id="author" placeholder="Who is the author?" class="section"><br><br>
+            
+            
+            <label for="pages">Pages</label><br>
+            <input type="text" id="pages" placeholder="How many pages in this book?" class="section"><br><br>
+            
+
+            <input type="checkbox" id="read-before" placeholder="How many pages in this book?" value="true">
+            <label for="read-before">Have you read it before?</label><br><br>
+            
+
+            <input type="button" value="Submit" id="btnsubmit" onclick="submitBook()">
+
+        </form>
+        <table id="my-table">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read</th>
+                <th>Remove</th>
+            </tr>
+        </table>
+        </div>
     </div>
-    <div id="main-container"></div>
+    
+        
+    </div>
+   
     
     
 </body>
