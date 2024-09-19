@@ -1,9 +1,10 @@
 body{
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: sans-serif;
+    background: url(images/plantgood.jpg) center / cover;
     
 }
 
@@ -40,38 +41,88 @@ input.section{
     align-items: center;   
 }
 
+label{
+    color: beige;
+}
+
+
+
 #popup{
-    /*display: flex;
-   flex-direction: column;
-    /*align-items: center;
-    justify-content: space-evenly;*/
     margin: auto;
-    width:50%;
-    height: 500px;
-    background-color: beige;
+    width:30%;
+    height: 200px;
+    background-color: #fb923cc6;
+    border-radius: 17px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) ;
+    padding: 70px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.75);
     opacity: 0; /*allows to show and hide the form*/
+    visibility: hidden;
+    transition: 0.5s;
+}
 
+#popup.active{
+    opacity: 1; /*allows to show and hide the form*/
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.container#to-opace.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none ;
 }
 
 #my-table{
     position: fixed;
-    top: 20%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid;
-    min-width: 60%;
+    transform: translate(-50%, 10%);
+    width: 82vw;
+    height: 10vh;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: 10px;
+    background-color: #fff5;
 }
 
+.table-header{
+    background-color: #fff4;
+    padding: .8rem 1rem;
+} 
+
 th, td {
-    padding: 15px;
+
+    padding: 1rem;
     text-align: center;
-    border: 1px solid;
+    height: 100px;
+
   }
 
+  .my-tr:hover{
+    background-color: #fff6;
+  }
+
+  .status{
+    background-color: red;
+    padding: .4rem 0;
+    border-radius: 2rem;
+  }
+
+
+#btnsubmit{
+    background-color:#737373;
+    width: 100px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0,75);
+    font-size: large;
+    padding: 10px, 25px;
+
+}
 button{
     background-color: #47a386;
     border: 0;

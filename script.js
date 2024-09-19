@@ -1,5 +1,13 @@
 
 let bookList = [];
+function toggle() {
+    let blur = document.getElementById('to-opace');
+    blur.classList.toggle('active')
+
+    let popup = document.getElementById('popup');
+    popup.classList.toggle('active')
+}
+
 function Book(title, author, pages, read){
     this.title = title; 
     this.author = author;
@@ -9,8 +17,9 @@ function Book(title, author, pages, read){
 
 addingBook = function() {
     addingButton = document.getElementById("popup");
+    divToShade = document.querySelectorAll('div');
     addingButton.style.opacity = "100";
-
+    toggle();
 }
 
 displayBook = function(args){
@@ -28,27 +37,27 @@ submitBook = function(){
     let readInput = document.getElementById("read-before");
         if (readInput.checked){
             readInput = "true";
+
         }
         else{
             readInput = "false";
+            
         }
     var newBook = new Book(titleInput, authorInput,pageInput,readInput);
-    bookList.push(newBook);
+    bookList.push(newBook);// for the stats page
     const bookForm = document.getElementById("book-form");
     console.log(newBook);
-    closingForm = document.getElementById('popup');
-    closingForm.style.opacity = "0";
-    
     const table = document.getElementById("my-table");
     let template = `
-                        <tr>
-                            <td>${titleInput}</td>
+                        <tr class = "my-tr">
+                            <td> <strong>${titleInput}</strong></td>
                             <td>${authorInput}</td>
                             <td>${pageInput}</td>
-                            <td>${readInput}</td>
+                            <td class = "status">${readInput}</td>
                             <td> TBC </td>
      `;
     table.innerHTML += template;
+    toggle();
 
     
 
