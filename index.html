@@ -15,8 +15,12 @@
             <img src="./images/library-shelves.svg" width="70px" height="45px" alt="the library">
             <p id="logo-text">The Library</p>
         </div>
-        <div id="adding">
-            <button> + Add Book </button>
+        <div class="top-button">
+            <button id="adding"> + Add Book </button> 
+        </div>
+        <br>
+        <div class="top-button">
+            <button id="stats"> Statistic</button>
         </div>
 
         
@@ -51,6 +55,11 @@
         <input type="button" value="Submit" id="btnsubmit" onclick="submitBook()">
 
     </form>
+    <div id="chart-container">
+        <div class="chart">
+            <canvas id="bubblechart" width="300" height="300" ></canvas>
+        </div>
+    </div>
 </div>
     
         
@@ -59,5 +68,6 @@
     
     
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="./script.js"></script>
 </html>
