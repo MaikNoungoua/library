@@ -15,3 +15,18 @@ square.style.gridArea ='1/2/2/3';
 4/2/5/3
 5/2/6/3
 6/2/7/3
+
+
+Book data for testing 
+
+The Count Of Monte Cristo 
+Alexandre DUMAS
+1275
+
+The Bible
+Unknown
+1000
+
+
+
+www.chartjs3.com/docs/chart/getting-started/

@@ -1,7 +1,22 @@
 
+let bookPerGenre = {};
+bookPerGenre["Fantasy"] = [0,0,0];//format: 'key', [pages read, pages unread, total pages]
+bookPerGenre["Science Fiction"] = [0,0,0];
+bookPerGenre["Distopian"] = [0,0,0];
+bookPerGenre["Mystery"] = [0,0,0];
+bookPerGenre["Horror"] = [0,0,0];
+bookPerGenre["Romance"] = [0,0,0];
+bookPerGenre["Historical-Fiction"] = [0,0,0];
+bookPerGenre["History"] =  [0,0,0];
+
+let bookPerGenre_entries = Object.entries(bookPerGenre);
+
+
 let bookList = [];
 let unreadBooks = [];
 let readBooks = [];
+
+
 function toggle() {
     let blur = document.getElementById('to-opace');
     blur.classList.toggle('active');
@@ -19,11 +34,13 @@ function toggleStat(){
 }
 
 
-function Book(title, author, pages, read){
+function Book(title, author, pages, genre,read){
     this.title = title; 
     this.author = author;
     this.pages = pages;
+    this.genre = genre;
     this.read = read;
+    
 }
 
 addingBook = function() {
@@ -44,20 +61,118 @@ submitBook = function(){
     let titleInput = document.getElementById("title").value;
     let authorInput = document.getElementById("author").value;
     let pageInput = document.getElementById("pages").value;
+    let genreInput = document.getElementById("genre").value;
     
     let readInput = document.getElementById("read-before");
         if (readInput.checked){
             readInput = "YES";
-
         }
         else{
-            readInput = "NO";
-            
+            readInput = "NO";  
         }
-    var newBook = new Book(titleInput, authorInput,pageInput,readInput);
+
+    let newBook = new Book(titleInput, authorInput,pageInput,genreInput,readInput);
+    console.log(newBook.genreInput);
+    
+
+    switch (newBook['genre']){
+        case "Fantasy":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[0][1][0] += Math.floor(parseFloat(newBook['pages']));//Math.floor(parseFloat(newBook['pages'])); to conver to an integer
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[0][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[0][1][2] = bookPerGenre_entries[0][1][0] + bookPerGenre_entries[0][1][1];
+
+            break;
+
+        case "Science Fiction":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[1][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[1][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[1][1][2] = bookPerGenre_entries[1][1][0] + bookPerGenre_entries[1][1][1];
+
+            break;
+
+        case "Distopian":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[2][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[2][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+
+            bookPerGenre_entries[2][1][2] = bookPerGenre_entries[2][1][0] + bookPerGenre_entries[2][1][1];
+
+            break;
+
+        case "Mystery":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[3][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[3][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[3][1][2] = bookPerGenre_entries[3][1][0] + bookPerGenre_entries[3][1][1];
+
+            break;
+
+        case "Horror":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[4][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[4][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[4][1][2] = bookPerGenre_entries[4][1][0] + bookPerGenre_entries[4][1][1];
+
+            break;
+
+        case "Romance":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[5][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[5][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[5][1][2] = bookPerGenre_entries[5][1][0] + bookPerGenre_entries[5][1][1];
+
+            break;
+
+        case "Historical Fiction":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[6][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[6][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[6][1][2] = bookPerGenre_entries[6][1][0] + bookPerGenre_entries[6][1][1];
+
+            break;
+        
+        case "History":
+            if (newBook['read'] == "YES") {
+                bookPerGenre_entries[7][1][0] += Math.floor(parseFloat(newBook['pages']));
+            }
+            else if (newBook['read'] == "NO"){
+                bookPerGenre_entries[7][1][1] += Math.floor(parseFloat(newBook['pages']));
+            }
+            bookPerGenre_entries[7][1][2] = bookPerGenre_entries[7][1][0] + bookPerGenre_entries[7][1][1];
+
+            break;
+
+        
+
+    }
+
     bookList.push(newBook);// for the stats page
     const bookForm = document.getElementById("book-form");
-    console.log(newBook);
+    console.log(newBook['genre']);
+    console.log(newBook['read']);
     const table = document.getElementById("my-table");
     if (readInput == "YES"){
         let template = `
@@ -65,8 +180,8 @@ submitBook = function(){
                             <td> <strong>${titleInput}</strong></td>
                             <td>${authorInput}</td>
                             <td>${pageInput}</td>
+                            <td>${genreInput}</td>
                             <td class = "status-read">${readInput}</td>
-                            <td> TBC </td>
      `;
     table.innerHTML += template;
 
@@ -77,15 +192,15 @@ submitBook = function(){
                             <td> <strong>${titleInput}</strong></td>
                             <td>${authorInput}</td>
                             <td>${pageInput}</td>
+                            <td>${genreInput}</td>
                             <td class = "status-non-read">${readInput}</td>
-                            <td> TBC </td>
      `;
     table.innerHTML += template;
 
     }
     toggle();
 
-    
+   
 
 }
 
@@ -105,44 +220,66 @@ createStat = function () {
 
     
     /*DATAS*/
+
+    const data = {
+        labels: ['Fantasy', 'Science Fiction', 'Distopian', 'Mystery', 'Horror', 'Romance', 'Historical Fiction', 'History'],
+        datasets: [{
+          label: 'Read Pages',
+          data: [bookPerGenre_entries[0][1][0], bookPerGenre_entries[1][1][0], bookPerGenre_entries[2][1][0], 
+            bookPerGenre_entries[3][1][0], bookPerGenre_entries[4][1][0], 
+            bookPerGenre_entries[5][1][0], bookPerGenre_entries[6][1][0], bookPerGenre_entries[7][1][0]],
+          backgroundColor: [
+            'rgba(144, 238, 144)',         
+         ],
+          borderColor: [
+            'rgba(144, 238, 144)',
+          ],
+          borderWidth: 1
+        },{
+            label: 'Unread Pages ',
+            data: [bookPerGenre_entries[0][1][1], bookPerGenre_entries[1][1][0], bookPerGenre_entries[2][1][1], 
+              bookPerGenre_entries[3][1][1], bookPerGenre_entries[4][1][1], 
+              bookPerGenre_entries[5][1][1], bookPerGenre_entries[6][1][1], bookPerGenre_entries[7][1][1]],
+            backgroundColor: [
+              'rgba(255, 15, 0, 0.6)',
+              
+            ],
+            borderColor: [
+              'rgba(255, 15, 0, 0.6)',
+            ],
+            borderWidth: 1
+          }]
+      };
+  
+      // config 
+      const config = {
+        type: 'bar',
+        data,
+        options: {
+          scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true,
+              beginAtZero: true
+            }
+          }
+        }
+      };
+  
+      // render init block
+      const myChart = new Chart(
+        document.getElementById('barchart'),
+        config
+      );
+  
+
+
     
-    const bubble_data = [
-        {x:20, y:unreadBooks[0].pages, r:10},
-        //{x:unreadBooks[1].title, y:unreadBooks[1].pages, r:10},
-        //{x:unreadBooks[2].title, y:unreadBooks[2].pages, r:10},
-    ]
+    //theCanvas = document.getElementById('chart-container');
 
-    const bubble_data2 = [
-        {x:30, y:readBooks[0].pages, r:12},
-       // {x:readBooks[1].title, y:readBooks[1].pages, r:12},
-       // {x:readBooks[2].title, y:readBooks[2].pages, r:12},
-    ]
-
-    /*CREATION OF CHART*/
-
-    const  myChart = new Chart('bubblechart',{
-        type: 'bubble',
-        data:{
-            datasets:[
-                {
-                    label: 'Unread',
-                    data: bubble_data,
-                    backgroundColor: 'rgb(255,99,132)',
-                    pointStyle: 'rectRot',
-                },
-                {
-                    label: 'Read',
-                    data: bubble_data2,
-                    backgroundColor: 'rgb(99,255,132)',
-                },
-            ]
-        },
-    });
-
-    
-    theCanvas = document.getElementById('chart-container');
-
-    theCanvas.appenChild(myChart);
+    //theCanvas.appenChild(myChart);
     
 }
 

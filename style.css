@@ -25,6 +25,8 @@ input.section{
 
 #banner, #books{
     display: grid;
+    font: bolder;
+    color: aliceblue;
 
 }
 
@@ -44,7 +46,7 @@ input.section{
 
 
 label{
-    color: beige;
+    color: rgb(245, 245, 220);
 }
 
 
@@ -52,14 +54,14 @@ label{
 #popup{
     margin: auto;
     width:30%;
-    height: 200px;
-    background-color: #fb923cc6;
+    height: 25%;
+    background-color: #d4914ac6;
     border-radius: 17px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) ;
-    padding: 70px;
+    padding: 50px;
     box-shadow: 0 5px 30px rgba(0,0,0,.75);
     opacity: 0; /*allows to show and hide the form*/
     visibility: hidden;
@@ -83,8 +85,6 @@ label{
     top: 10%;
     left: 50%;
     transform: translate(-50%, 10%);
-    width: 50vw;
-    height: 50vh;
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: 10px;
@@ -92,6 +92,13 @@ label{
     visibility: hidden;
     transition: 0.5s;
     background-color: #fff5;
+
+    width: 100vw;
+    height: calc(100vh - 40px);
+    /*background: rgba(54, 162, 235, 0.2);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -174,4 +181,17 @@ button{
     font-size: x-large;
     gap: 5px;
     
+}
+
+.chart{
+    width: 700px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background-color: #fff5;
+}
+
+canvas{
+    height:100%;
+    width: 100%;
 }
